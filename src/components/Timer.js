@@ -1,14 +1,7 @@
 import React, { Component } from 'react'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-
-
-// Styles 
-
-// const progressStyle = {
-//     height: '100px'
-// }
-
+import './timer.css'
 
 export class Timer extends Component {
     constructor(props) {
@@ -19,14 +12,13 @@ export class Timer extends Component {
             finishingTime: new Date(),
             remainingTime: 0,
             elapsedTime: 0,
-            pomodoroTime: 2,
+            pomodoroTime: 1,
             percentage: 0
         }
 
         this.updateTimer = this.updateTimer.bind(this);
         this.activatePomodoro = this.activatePomodoro.bind(this);
         this.millisToMinutesAndSeconds = this.millisToMinutesAndSeconds.bind(this);
-
     }
     
     componentDidMount() {
@@ -66,30 +58,34 @@ export class Timer extends Component {
 
     render() {
         const progressBar = (
+            <div class="horizon">
+                <div class="progressBar">
                 <CircularProgressbar 
                 value={this.state.percentage}
                 maxValue={1} 
-                text={`${this.state.percentage}%`}
+                // text={`${this.state.percentage.toFixed(2)}%`}
+                text={`${this.millisToMinutesAndSeconds(this.state.remainingTime)}`}
                 styles={buildStyles({
-                    background: 'true',
-                    textSize: '2px',
+                    textSize: '15px',
                 })
                 }
-                style={{
-                    width: '2px'
-                }}
                 />
+                </div>
+            </div>
+            
+                
         )
 
         return (
             <div>
+                {progressBar}
                 <p>
                     <input type="button" onClick={this.activatePomodoro}></input>
                 </p>
 
 
                 {/* {progressBar} */}
-                {this.state.timer.toLocaleTimeString()} 
+                {/* {this.state.timer.toLocaleTimeString()} 
                 <p></p>
                 {this.state.finishingTime.toLocaleTimeString()}
                 <p></p>
@@ -100,9 +96,10 @@ export class Timer extends Component {
                 {(this.state.remainingTime)}
                 <br></br>
                 {this.state.percentage.toFixed(2)}
-                {/* {(this.state.remainingTime)}</br> */}
-                
-            
+                {(this.state.remainingTime)}</br> */}
+                {
+                    this.millisToMinutesAndSeconds(this.state.remainingTime)
+                }
 
             </div>
         )

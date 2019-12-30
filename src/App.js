@@ -10,8 +10,7 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <Header/>
-          {/* <Clock/> */}
-          {/* <Timer/> */}
+          <Timer/>
         </div>
       </div>
     );
