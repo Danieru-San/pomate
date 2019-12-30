@@ -1,32 +1,29 @@
 import React, { Component } from 'react'
-import logo from './pomate.png';
+import tomate from './pomate.png';
+import logo from './logo.png'
+
 
 export class Header extends Component {
     render() {
 
-        const styleTitle = {
+        const headerStyle = {
+            display: 'flex',
+            background: 'black',
+            width: '100%',
+
+        }
+        
+        const titleStyle = {
+            display: 'flex',
             fontSize: 20,
             fontFamily: "Monospace",
-            color: "white",
-            padding: "5px"
+            color: 'white',
+            padding: '20px'
         }
-
-        const header = {
-            background: "black",
-            textAlign: "center"
-        }
-
-        const backgroundTitle = "POMATO";
-
-        const tomatoImg = <img src={logo} className="App-logo" alt="logo"/>
 
         return (
-            <div style={header}>
-                {tomatoImg}
-                <p style={styleTitle}>
-                    {backgroundTitle}
-                </p>
-                
+            <div id="header" style={headerStyle}>
+                <span id="title" style={titleStyle}>Pomate</span>
             </div>
         )
     }

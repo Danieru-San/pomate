@@ -9,9 +9,9 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          {/* <Header/> */}
+          <Header/>
           {/* <Clock/> */}
-          <Timer/>
+          {/* <Timer/> */}
         </div>
       </div>
     );
