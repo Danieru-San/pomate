@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import './timer.css'
+import notification from './notification.mp3'
 
 export class Timer extends Component {
     constructor(props) {
@@ -13,7 +14,8 @@ export class Timer extends Component {
             remainingTime: 0,
             elapsedTime: 0,
             pomodoroTime: 1,
-            percentage: 0
+            percentage: 0,
+            running: false
         }
 
         this.updateTimer = this.updateTimer.bind(this);
@@ -42,12 +44,28 @@ export class Timer extends Component {
         this.setState({
             timer: new Date(),
             startingTime: this.state.timer,
-            finishingTime: new Date(this.state.timer.getTime() + (60000 * this.state.pomodoroTime))
-        });
+            finishingTime: new Date(this.state.timer.getTime() + (60000 * this.state.pomodoroTime)),
+            running: true
+        },
+          this.update
+        );
+    }
 
-        setInterval(() => {
-            this.updateTimer();
-        }, 1000);
+    update() {
+        if (this.state.running === true && this.state.remainingTime === 0){
+            var audio = new Audio(notification);
+            audio.play();
+            this.setState({
+                running: false
+            });
+
+        }
+
+        else {
+            setInterval(() => {
+                this.updateTimer();
+            }, 1000)    
+        }
     }
 
     millisToMinutesAndSeconds(millis) {
@@ -62,13 +80,17 @@ export class Timer extends Component {
                 <div class="progressBar">
                 <CircularProgressbar 
                 value={this.state.percentage}
-                maxValue={1} 
+                maxValue={1}
                 // text={`${this.state.percentage.toFixed(2)}%`}
                 text={`${this.millisToMinutesAndSeconds(this.state.remainingTime)}`}
                 styles={buildStyles({
                     textSize: '15px',
+                    textColor: 'black',
+                    trailColor: '#ff8000',
+                    pathColor: '#a81824'
                 })
                 }
+
                 />
                 </div>
             </div>
@@ -79,8 +101,8 @@ export class Timer extends Component {
         return (
             <div>
                 {progressBar}
-                <p>
-                    <input type="button" onClick={this.activatePomodoro}></input>
+                <p id="button">
+                    <input type="button" value="Start Pomodoro" onClick={this.activatePomodoro}></input>
                 </p>
 
 
@@ -98,7 +120,7 @@ export class Timer extends Component {
                 {this.state.percentage.toFixed(2)}
                 {(this.state.remainingTime)}</br> */}
                 {
-                    this.millisToMinutesAndSeconds(this.state.remainingTime)
+                    // this.millisToMinutesAndSeconds(this.state.remainingTime)
                 }
 
             </div>
