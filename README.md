@@ -1,2 +1,2 @@
 # pomate
-A simple pomodoro timer.
+My first pomodoro timer.
