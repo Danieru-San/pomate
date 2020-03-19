@@ -1,9 +1,185 @@
 body {
     margin: 0;
+    background-color: #c03546;
+}
+
+.navbar {
+    background-color: #492540;
+    color: white;
+    display: flex;
+    flex-direction: row;
+}
+
+.what-timer {
+    display: flex;
+    flex-direction: row;
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-top: 40px;
+    justify-content: baseline;
+    color: white;
+    font-weight: bold;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 30px;
+}
+
+.navbar #title {
+    display: flex;
+    color: white;
+    margin-left: 10px;
+    justify-content: center;
+    padding: 10px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+}
+
+.navbar #settings {
+    display: flex;
+    flex-grow: 3;
+    margin-top: 10px;
+    justify-content: end;
+    margin-right: 15px;
+}
+
+.progress-bar {
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-top: 10px;
+}
+
+#progress-background {
+    width: 100%;
+    height: 2px;
+    margin-top: 10px;
+    background: rgb(146, 38, 38);
+}
+
+#progress-fill {
+    width: 0%;
+    height: 2px;
+    background:white;
+}
+
+#timer {
+    color: white;
+    font-weight: bold;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 25px;
 }
 
 .buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+    margin-left: 40%;
+    margin-right: 40%;
 }
 
-.clock {
+#startStopBtn, #resetBtn, #skipBtn {
+    background-color: #c03546;
+    color: white;
+    padding: 10px;
+    border: 1px solid white;
+    margin-bottom: 10px;
+}
+
+#startStopBtn:hover, #resetBtn:hover, #skipBtn:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid white;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.tomatoBasket {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #492540;
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  #settings-title {
+      font-family: 'Quicksand', sans-serif;
+  }
+  
+  #text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+  }
+  
+  img {
+    border-radius: 50%;
+    -webkit-transition: -webkit-transform .8s ease-in-out;
+            transition:         transform .8s ease-in-out;
+  }
+
+  img:hover {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    width: 21px;
+    height: 21px;
+  }
+
+  #overlay-button {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    font-size: 20px;
+    color: black;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    margin-top: 30px;
+}
+
+#text .settings {
+    display: flex;
+    flex-direction: column;
+    color: whitesmoke;
+    margin-bottom: 50px;
+    font-size: 20px;
+    padding: 40px;
+    font-family: 'Quicksand', sans-serif;
+    width: 400px;
+}
+
+
+.input-class {
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+.tomatoBasket {
+    display: flex;
+    flex-direction: column;
+    margin-left: 40%;
+    margin-right: 40%;
+}
+
+#basket {
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    /* background-color: black; */
 }

@@ -2,20 +2,56 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Pomate 🍅</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <div class="clock">
-            Timer: <span id="timer"></span>
+        <div class="navbar">
+            <div id="title">Pomate 🍅 </div>
+            <div id="settings"><img id="gear" src="gear1.png" width="20px" height="20px" alt=""></div>
         </div>
 
-        <div class="buttons">
-            <button id="startStopBtn">Start/Stop</button>
-            <button id="resetBtn">Reset</button>
+    <div class="what-timer"><span id="timer-title">Get to work!</span></div>
+    <div class="progress-bar">
+
+        <span id="timer"></span>
+
+        <div id="progress-background">
+            <div id="progress-fill"></div>
         </div>
+    </div>
+
+        <div class="buttons">
+            <button id="startStopBtn">Start Pomodoro 🍅</button>
+            <button id="resetBtn">Reset</button>
+            <button id="skipBtn">Skip</button>
+        </div>
+
+        <div class="tomatoBasket">
+            <br><span id="pomodorosCount">0 pomodoros complete.</span><p>
+                <span id="basket"></span>
+        </div>
+
+
+    <div id="overlay">
+        <div id="text">
+            <b id="settings-title"> Settings</b> <br>
+            <div class="settings">
+                Pomodoro time: <input class="input-class" type="text" id="settings-pomodoro"> <br>
+                Break time: <input class="input-class" type="text" id="settings-break"> <br>
+                Long break time: <input class="input-class" type="text" id="settings-long"><br>
+                <button id="overlay-button">Save</button>
+            </div>
+        </div>
+
+        
+
+    </div>
+    
         
         <script src="pomate.js"></script>
     </body>
